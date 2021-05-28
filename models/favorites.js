@@ -1,29 +1,38 @@
-const {DataTypes} = require('sequelize');
+const {DataTypes } = require('sequelize');
 const database = require('../db');
 
+module.exports = database.define('favorites', {
 
- module.exports = database.define('favorites', {
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    recipeId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    imageURL: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    note: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    
-  });
-  
+user_id: {
+  type: DataTypes.INTEGER,
+  allowNull: false
+},
+recipeId: {
+  type: DataTypes.INTEGER,
+  allowNull: false
+},
+imageURL: {
+  type: DataTypes.STRING,
+  allowNull: false
+},
+title: {
+  type: DataTypes.STRING,
+  allowNull: false
+},
+note: {
+  type: DataTypes.STRING,
+  allowNull: false
+}
+});
 
+
+
+
+
+
+
+// const {DataTypes} = require('sequelize');
+// const database = require('../db');
+
+
+//  module.exports = database.define('favorites', {
