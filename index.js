@@ -4,7 +4,7 @@ const Express = require('express');
 const database = require('./db');
 const userControllers = require('./controllers/userControllers');
 const favoritesControllers = require('./controllers/favoritesControllers');
-// const recipeControllers = require('./controllers/recipeControllers');
+const port = process.env.PORT;
 
 const app = Express();
 
@@ -17,5 +17,6 @@ app.use('/favorites', favoritesControllers);
 
 database.sync();
 
-app.listen(process.env.PORT, () => console.log(`[${process.env.PORT}]: hheeeyyyy`));
+app.listen(process.env.PORT, () => console.log(`server is up and listening on port [${port}]: hheeeyyyy`));
+
 
