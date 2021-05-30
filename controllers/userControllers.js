@@ -2,9 +2,7 @@ const router = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const cors = require("cors");
 
-router.use(cors());
 
 router.get('/test', (req,res) => { //endpoints
  res.send('testing control');

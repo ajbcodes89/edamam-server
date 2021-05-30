@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Favorites = require('../models/favorites');
 const validate = require('../middleware/validation');
 
+
 router.get('/test', (req,res) => res.send('Favorites test Controller'));
 
 router.post("/add", (req, res) => {
