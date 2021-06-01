@@ -7,10 +7,6 @@ user_id: {
   type: DataTypes.INTEGER,
   allowNull: false
 },
-recipeId: {
-  type: DataTypes.INTEGER,
-  allowNull: false
-},
 imageURL: {
   type: DataTypes.STRING,
   allowNull: false
