@@ -13,8 +13,8 @@ app.use(Express.json());
 
 app.use('/user', userControllers);
 
-app.use(validate);
 app.use('/favorites', favoritesControllers);
+app.use(validate);
 
 
 database.sync();
