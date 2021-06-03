@@ -3,11 +3,11 @@ const database = require('../db');
 
 const User = database.define('user', {
     userName: {
-        type: sequelize.STRING,
+        type: Sequelize.STRING,
         allowNull: false
      },
     password: {
-        type: sequelize.STRING,
+        type: Sequelize.STRING,
         allowNull: false
     }
 });

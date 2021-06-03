@@ -5,7 +5,7 @@ const validation = (req, res, next) => {
     const token = req.headers.authorization;
 
      if(!token) {
-         return res.status(504).json({
+         return res.status(403).json({
              auth: false,
              message: 'token not available'
          })
@@ -23,11 +23,10 @@ const validation = (req, res, next) => {
                     req.user = user;
                     return next();
                 })
-                .catch(err => next(err))
-            
+                .catch(err => next(err))           
             } else {
                  req.errors = err;
-                 return res.status(400).send('not allowed');
+                 return res.status(500).send('Not Allowed');
              }
          })
      }
