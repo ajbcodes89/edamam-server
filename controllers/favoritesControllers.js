@@ -1,9 +1,8 @@
-const router = require('express').Router();
-const Favorites = require('../models/favorites');
-const validate = require('../middleware/validation');
+const router = require("express").Router();
+const Favorites = require("../models/favorites");
+const validate = require("../middleware/validation");
 
-
-router.get('/test', (req,res) => res.send('Favorites test Controller'));
+router.get("/test", (req, res) => res.send("Favorites test Controller"));
 
 router.post("/add", (req, res) => {
   Favorites.create({
@@ -14,13 +13,24 @@ router.post("/add", (req, res) => {
     note: req.body.note,
   })
     .then((favorites) => res.status(200).json(favorites))
-    .catch((err) => res.status(500).json({ error: 'Create favorites for user failed'}));
+    .catch((err) =>
+      res.status(500).json({ error: "Create favorites for user failed" })
+    );
 });
 
 router.get("/mine", (req, res) => {
-    Favorites.findAll() 
-    .then(mine => res.status(200).json({ message: `Found ${mine.length} Favorite Recipes!` , count:mine.length, mine }))
-    .catch(err => res.status(500).json({ message: 'No Favorites found', err }))
-})
+  Favorites.findAll()
+    .then((mine) =>
+      res.status(200).json({
+        message: `Found ${mine.length} Favorite Recipes!`,
+        count: mine.length,
+        mine,
+      })
+    )
+    .catch((err) =>
+      res.status(500).json({ message: "No Favorites found", err })
+    );
+});
+//note
 
 module.exports = router;
