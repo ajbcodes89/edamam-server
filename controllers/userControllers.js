@@ -14,7 +14,7 @@ router.post('/register', (req,res) => {
         password: bcrypt.hashSync(req.body.password, 5)
     })
     .then(user => {
-        let token = jwt.sign({id: user.id}, 'I_AM_SECRET', {expiresIn: '1d'})
+        let token = jwt.sign({id: user.id}, process.env.SECRET, {expiresIn: '1d'})
         res.send({ user, token })
     })
     .catch(error => res.status(317).send({
@@ -37,7 +37,7 @@ router.post('/login', (req, res) => {
            res.send('Error! Try Again')
        })
        function generateToken(user) {
-           let token = jwt.sign({ id: user.id }, 'I_AM_SECRET', {expiresIn: '1d' });
+           let token = jwt.sign({ id: user.id }, process.env.SECRET, {expiresIn: '1d' });
            res.send({user, token})
        }
 
